@@ -9,7 +9,8 @@ def es_palindromo(palabra: str) -> bool:
     Referencia: https://docs.python.org/3/tutorial/introduction.html#lists
     """
     pass # Completar
-
+    lista = list(palabra)
+    return lista == lista[::-1]
 
 # NO MODIFICAR - INICIO
 assert not es_palindromo("amor")
@@ -29,7 +30,9 @@ def mitad(palabra: str) -> str:
     Referencia: https://docs.python.org/3/tutorial/introduction.html#lists
     """
     pass # Completar
-
+    if len(palabra) % 2 == 0: 
+        return palabra[:int(len(palabra)/2)]
+    else: return palabra[:round(len(palabra)/2)+1]
 
 # NO MODIFICAR - INICIO
 assert mitad("hello") == "hel"

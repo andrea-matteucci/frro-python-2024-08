@@ -11,7 +11,12 @@ def suma_cubo_pares_for(numeros: Iterable[int]) -> int:
     separar los pares.
     """
     pass # Completar
-
+    suma = 0
+    for i in range(len(numeros)):
+        numeros[i] = numeros[i] ** 3
+    for j in range(len(numeros)):
+        if numeros[j] % 2 == 0: suma += numeros[j]
+    return suma
 
 # NO MODIFICAR - INICIO
 assert suma_cubo_pares_for([1, 2, 3, 4, 5, 6]) == 288
@@ -29,7 +34,7 @@ def suma_cubo_pares_sum_list(numeros: Iterable[int]) -> int:
     Referencia: https://docs.python.org/3/library/functions.html#sum
     """
     pass # Completar
-
+    return sum([elemento**3 for elemento in numeros if elemento % 2 == 0])
 
 # NO MODIFICAR - INICIO
 assert suma_cubo_pares_sum_list([1, 2, 3, 4, 5, 6]) == 288
@@ -45,7 +50,7 @@ def suma_cubo_pares_sum_gen(numeros: Iterable[int]) -> int:
     Referencia: https://docs.python.org/3/reference/expressions.html#generator-expressions
     """
     pass # Completar
-
+    return sum([elemento**3 for elemento in numeros if elemento % 2 == 0])
 
 # NO MODIFICAR - INICIO
 assert suma_cubo_pares_sum_gen([1, 2, 3, 4, 5, 6]) == 288
@@ -64,25 +69,25 @@ numeros = [1, 2, 3, 4, 5, 6]
 
 # Escribir una función lambda que eleve los elementos al cubo
 
-numeros_al_cubo = # Completar
+numeros_al_cubo = list(map(lambda x: x ** 3, numeros))
 
 
 # Escribir una función lambda que permita filtrar todos los elementos pares
 
-numeros_al_cubo_pares = # Completar
+numeros_al_cubo_pares = list(filter(lambda x: x % 2 == 0, numeros_al_cubo))
 
 
 # Escribir una función Lambda que sume todos los elementos
 
 from functools import reduce
 
-suma_numeros_al_cubo_pares = # Completar
+suma_numeros_al_cubo_pares = reduce(lambda x, y: x + y, numeros_al_cubo_pares)
 
 
 # Escribir una función Lambda que permita ordenar los elementos de la numeros
 # en base a si son pares o impares
 
-numeros_ordenada = # Completar
+numeros_ordenada = sorted(numeros, key=lambda x: (x % 2 == 0, x))
 
 # NO MODIFICAR - INICIO
 assert numeros_al_cubo == [1, 8, 27, 64, 125, 216]
