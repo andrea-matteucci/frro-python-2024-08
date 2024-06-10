@@ -13,7 +13,7 @@ class Articulo:
 # NO MODIFICAR - FIN
 
 
-from copy import deepcopy
+import copy
 
 
 def actualizar_precio(articulos: List[Articulo], porcentaje: float) -> List[Articulo]:
@@ -25,7 +25,11 @@ def actualizar_precio(articulos: List[Articulo], porcentaje: float) -> List[Arti
     """
     
     # Completar
+    new_list = copy.deepcopy(articulos)
+    for articulo in range(len(new_list)):
+        new_list[articulo].precio = new_list[articulo].precio * (1+porcentaje/100)
 
+    return new_list
 
 # NO MODIFICAR - INICIO
 nombres = ["sabana", "parlante", "computadora", "tasa", "botella", "celular"]

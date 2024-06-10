@@ -11,7 +11,16 @@ class Articulo:
     """
 
     # Completar
+    _last_id = 0
 
+    def __init__(self, nombre=None):
+        self.nombre = nombre
+        self.id_ = self._generar_id()
+
+    @classmethod
+    def _generar_id(cls):
+        cls._last_id += 1
+        return cls._last_id
 
 # NO MODIFICAR - INICIO
 art1 = Articulo("manzana")

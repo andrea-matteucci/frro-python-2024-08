@@ -12,6 +12,22 @@ class Auto:
     Referencia: https://docs.python.org/3/library/functions.html#property"""
 
     # Completar
+    def __init__(self, nombre, precio):
+        self.__nombre = nombre
+        self.__precio = precio
+
+    @property
+    def nombre(self): 
+        return self.__nombre[0].upper() + self.__nombre[1:]
+
+    @property
+    def precio(self): 
+        return round(self.__precio, 2)
+
+    @precio.setter 
+    def precio(self, nuevo):
+        self.__precio = nuevo
+        return self.__precio
 
 
 # NO MODIFICAR - INICIO
@@ -40,6 +56,21 @@ class Auto:
     """Re-Escribir utilizando DataClasses"""
 
     # Completar
+    __nombre: str
+    __precio: float
+
+    @property
+    def nombre(self): 
+        return self.__nombre[0].upper() + self.__nombre[1:]
+
+    @property
+    def precio(self): 
+        return round(self.__precio, 2)
+
+    @precio.setter 
+    def precio(self, nuevo):
+        self.__precio = nuevo
+        return self.__precio
 
 
 # NO MODIFICAR - INICIO
