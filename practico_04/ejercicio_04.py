@@ -1,7 +1,7 @@
 """Base de Datos SQL - Búsqueda"""
 
 import datetime
-
+import sqlite3
 from practico_04.ejercicio_01 import reset_tabla
 from practico_04.ejercicio_02 import agregar_persona
 
@@ -11,7 +11,17 @@ def buscar_persona(id_persona):
     persona basado en su id. El return es una tupla que contiene sus campos: 
     id, nombre, nacimiento, dni y altura. Si no encuentra ningun registro, 
     devuelve False."""
-    pass # Completar
+    # Completar
+    db = sqlite3.connect('Personas.db')
+    cursor = db.cursor()
+    cursor.execute('SELECT * FROM Persona WHERE IdPersona = "%s"' % (id_persona))
+    persona = cursor.fetchone()
+    if persona:
+        db.close()
+        return persona
+    else:
+        db.close()
+        return False
 
 
 # NO MODIFICAR - INICIO
